@@ -113,34 +113,35 @@ public class GelenEvrakTableController implements Initializable {
 			
 			table.setRowFactory(tv -> {
 				TableRow<Evrak> row = new TableRow();
+				
 				row.setOnMousePressed(new EventHandler<MouseEvent>() {
-				    @Override
-				    public void handle(MouseEvent event) {
-				        if (event.isSecondaryButtonDown()) {
-				        	TextField textField = new TextField("Type Something"); // we will add a popup menu to this text field
-							final ContextMenu contextMenu = new ContextMenu();
-							MenuItem delete = new MenuItem("Delete");
-							contextMenu.getItems().addAll(delete);
-							delete.setOnAction(new EventHandler<ActionEvent>() {
-							    @Override
-							    public void handle(ActionEvent event) {
-							        System.out.println("Cut...");
-							        System.out.println(row);
-							        if (row.getItem() != null) {
-							        	try {
-											EvrakRepository.deleteEvrak(row.getItem().getId());
-										} catch (SQLException e) {
-											e.printStackTrace();
-										}
-									}
-							    }
-							});
-							// ...
-							textField.setContextMenu(contextMenu);
-				            contextMenu.show(row, event.getScreenX(), event.getScreenY());
-				           
-				        }
-				    }
+						@Override
+					    public void handle(MouseEvent event) {
+					        if (row.getItem() != null) {
+								if (event.isSecondaryButtonDown()) {
+						        	TextField textField = new TextField("Type Something");
+									final ContextMenu contextMenu = new ContextMenu();
+									MenuItem delete = new MenuItem("Delete");
+									contextMenu.getItems().addAll(delete);
+									delete.setOnAction(new EventHandler<ActionEvent>() {
+									    @Override
+									    public void handle(ActionEvent event) {
+									        System.out.println("Cut...");
+									        System.out.println(row);
+								        	try {
+												EvrakRepository.deleteEvrak(row.getItem().getId());
+											} catch (SQLException e) {
+												e.printStackTrace();
+											}
+									    }
+									});
+									// ...
+									textField.setContextMenu(contextMenu);
+						            contextMenu.show(row, event.getScreenX(), event.getScreenY());
+						           
+						        }
+					        }
+					    }
 				});
 				return row;
 			});
