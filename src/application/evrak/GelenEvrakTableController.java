@@ -107,8 +107,9 @@ public class GelenEvrakTableController implements Initializable {
 			
 			table.setItems(oList);
 			
-			
-			
+			/* 
+			 * Table üzerinde row silme için right click contextMenu. 
+			 */
 			
 			table.setRowFactory(tv -> {
 				TableRow<Evrak> row = new TableRow();
