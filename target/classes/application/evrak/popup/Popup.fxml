@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="523.0" styleClass="white-background-color" stylesheets="@../../../resources/css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.evrak.popup.PopupController">
+   <children>
+      <VBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <StackPane>
+               <children>
+                  <Label text="Gelen Evrak Kaydet">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" top="20.0" />
+               </padding>
+            </StackPane>
+            <VBox spacing="5.0">
+               <children>
+                  <Label text="İdari birim kodu" />
+                  <TextField fx:id="tfIdariBirimKodu" />
+               </children>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="180.0" spacing="5.0">
+               <children>
+                  <Label text="İl" />
+                  <ComboBox fx:id="cmbIl" prefWidth="200.0" />
+               </children>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="471.0" spacing="5.0">
+               <children>
+                  <Label text="İlçe" />
+                  <ComboBox fx:id="cmbIlce" prefWidth="200.0" />
+               </children>
+            </VBox>
+            <VBox spacing="5.0">
+               <children>
+                  <Label text="Tarih" />
+                  <DatePicker fx:id="dpTarih" prefWidth="200.0" />
+               </children>
+            </VBox>
+            <VBox spacing="5.0">
+               <children>
+                  <Label text="Konu" />
+                  <TextField fx:id="tfKonu" />
+               </children>
+            </VBox>
+            <VBox spacing="5.0">
+               <children>
+                  <Label text="Evrağın geldiği kurum/kişi" />
+                  <TextField fx:id="tfKurumKisi" />
+               </children>
+            </VBox>
+            <VBox spacing="5.0">
+               <children>
+                  <Label text="Eki" />
+                  <TextField fx:id="tfEk" />
+               </children>
+            </VBox>
+            <VBox spacing="5.0">
+               <children>
+                  <Label text="Açıklama" />
+                  <TextField fx:id="tfAciklama" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_RIGHT" spacing="5.0">
+               <children>
+                  <Button fx:id="kaydet" mnemonicParsing="false" onAction="#kaydet" styleClass="button-blue" text="Kaydet">
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="SAVE" size="17" />
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" />
+         </padding>
+      </VBox>
+   </children>
+   <padding>
+      <Insets left="30.0" right="30.0" />
+   </padding>
+</AnchorPane>

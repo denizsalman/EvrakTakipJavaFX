@@ -1,0 +1,31 @@
+/*f5f6fa 
+ * #e8ebeb 
+ *
+ * border-color-focused-blue: #4154fa
+ * border-color-gray: #c3cad6
+ *  */
+
+
+@font-face {
+    src: url("../font/OpenSans-Light.ttf");
+}
+
+
+
+.leftSide {
+	-fx-background-color: #023E8A; 
+}
+
+.tfLogin {
+	-fx-background-color: transparent;
+	-fx-border-color: #023E8A;
+	-fx-border-width: 0 0 2 0;
+}
+
+.loginButton {
+	-fx-background-color: #0077b6;
+	-fx-text-fill: #ffffff;
+}
+
+
+

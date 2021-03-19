@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="1100.0" style="-fx-background-color: #ffffff;" stylesheets="@../../resources/css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.evrak.HomeController">
+   <children>
+      <BorderPane fx:id="borderPane" prefHeight="200.0" prefWidth="847.0" styleClass="homeBackgroundColor" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox fx:id="leftSideVBox" alignment="CENTER" prefHeight="699.0" prefWidth="145.0" spacing="20.0" styleClass="leftSideNavigator" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="btnGelenEvrak" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#gelenEvrakAction" styleClass="leftSideButton" text="Gelen Evrak">
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="ARROW_DOWN" size="17" />
+                     </graphic>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnGidenEvrak" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#gidenEvrakAction" styleClass="leftSideButton" text="Giden Evrak" VBox.vgrow="ALWAYS">
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="ARROW_UP" size="17" />
+                     </graphic>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </VBox>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>
