@@ -21,6 +21,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 public class PopupController implements Initializable {
@@ -60,6 +61,9 @@ public class PopupController implements Initializable {
 				tfKurumKisi.getText(), "20201203", tfEk.getText(), 
 				dpTarih.getValue().toString() , tfAciklama.getText(), tfKonu.getText());
 		EvrakRepository.createEvrak(evrak);
+		Stage stage = (Stage) kaydet.getScene().getWindow();
+		stage.close();
+		
 	}
 
 	@Override
