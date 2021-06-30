@@ -26,8 +26,7 @@
     </plugins>
   </build>
   
-      
-    <dependencies>
+      <dependencies>
 		<dependency>
 		    <groupId>de.jensd</groupId>
 		    <artifactId>fontawesomefx</artifactId>
@@ -38,7 +37,19 @@
 		    <artifactId>sqlite-jdbc</artifactId>
 		    <version>3.34.0</version>
 		</dependency>
-		   	
+		<dependency>
+		    <groupId>org.controlsfx</groupId>
+		    <artifactId>controlsfx</artifactId>
+		    <version>8.40.14</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.derby/derby -->
+		<dependency>
+		    <groupId>org.apache.derby</groupId>
+		    <artifactId>derby</artifactId>
+		    <version>10.14.2.0</version>
+		    <scope>test</scope>
+		</dependency>
+		
     </dependencies>
   
 </project>

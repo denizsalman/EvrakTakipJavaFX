@@ -126,7 +126,7 @@ public class GelenEvrakTableController implements Initializable {
 									delete.setOnAction(new EventHandler<ActionEvent>() {
 									    @Override
 									    public void handle(ActionEvent event) {
-									        System.out.println("Cut...");
+									        System.out.println("Delete...");
 									        System.out.println(row);
 								        	try {
 												EvrakRepository.deleteEvrak(row.getItem().getId());

@@ -5,11 +5,14 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import org.controlsfx.control.Notifications;
+
 import application.entity.Evrak;
 import application.entity.Il;
 import application.entity.Ilce;
 import application.repository.EvrakRepository;
 import application.repository.UtilRepository;
+import application.util.Notification;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -17,11 +20,16 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import javafx.util.StringConverter;
 
 public class PopupController implements Initializable {
@@ -64,6 +72,8 @@ public class PopupController implements Initializable {
 		Stage stage = (Stage) kaydet.getScene().getWindow();
 		stage.close();
 		
+        
+       Notification.showSuccess("Başarılı", "Kayıt Başarılı" ,stage.getOwner());
 	}
 
 	@Override

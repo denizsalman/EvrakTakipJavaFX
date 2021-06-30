@@ -14,7 +14,7 @@ import application.entity.Ilce;
 public class UtilRepository {
 
 	private static final String GET_ILLER = "select * from il";
-	private static final String GET_ILCELER = "select * from ilce where il_no = ?";
+	private static final String GET_ILCELER = "select * from ilce where il_no = ? order by isim";
 	
 	
 	public static List<Il> getIller() {

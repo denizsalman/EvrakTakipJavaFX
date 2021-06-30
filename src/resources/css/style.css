@@ -164,12 +164,6 @@
 	-fx-background-color: #f8f8f9;
 }
 
-.k {
-	-fx-border-color: #c3cad6;
-	-fx-background-color: red;
-	-fx-pref-height: 100;
-	-fx-border-radius: 5;
-}
 
 .text-field {
 	-fx-border-color: #c3cad6;
