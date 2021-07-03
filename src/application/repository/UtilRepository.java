@@ -7,14 +7,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import application.db.SqliteConnection;
+import application.db.DBConnection;
 import application.entity.Il;
 import application.entity.Ilce;
 
 public class UtilRepository {
 
 	private static final String GET_ILLER = "select * from il";
-	private static final String GET_ILCELER = "select * from ilce where il_no = ? order by isim";
+	private static final String GET_ILCELER = "select * from ilce where id_il = ? order by ilce_adi";
 	
 	
 	public static List<Il> getIller() {
@@ -24,7 +24,7 @@ public class UtilRepository {
 		List<Il> ilList = new ArrayList();
 		
 		try {
-			connection = SqliteConnection.getConnection();
+			connection = DBConnection.getConnection();
 			ps = connection.prepareStatement(GET_ILLER);
 			rs = ps.executeQuery();
 			
@@ -58,7 +58,7 @@ public class UtilRepository {
 		List<Ilce> ilceList = new ArrayList();
 		
 		try {
-			connection = SqliteConnection.getConnection();
+			connection = DBConnection.getConnection();
 			ps = connection.prepareStatement(GET_ILCELER);
 			ps.setInt(1, id);
 			rs = ps.executeQuery();

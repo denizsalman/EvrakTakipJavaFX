@@ -66,7 +66,7 @@ public class PopupController implements Initializable {
 		Il selectedIl = cmbIl.getSelectionModel().getSelectedItem();
 		Ilce selectedIlce = cmbIlce.getSelectionModel().getSelectedItem();
 		Evrak evrak = new Evrak(tfIdariBirimKodu.getText(), selectedIl.getIl_no().toString(), selectedIlce.getIlce_no().toString(), 
-				tfKurumKisi.getText(), "20201203", tfEk.getText(), 
+				tfKurumKisi.getText(), tfEk.getText(), 
 				dpTarih.getValue().toString() , tfAciklama.getText(), tfKonu.getText());
 		EvrakRepository.createEvrak(evrak);
 		Stage stage = (Stage) kaydet.getScene().getWindow();

@@ -60,9 +60,6 @@ public class GelenEvrakTableController implements Initializable {
     private TableColumn<Evrak, String> ek;
 
     @FXML
-    private TableColumn<Evrak, String> kayitTarihi;
-
-    @FXML
     private TableColumn<Evrak, String> aciklama;
     
 
@@ -91,7 +88,9 @@ public class GelenEvrakTableController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
+			//Veritabanından gelen evrak bilgilerini getirir
 			List<Evrak> evrakList = EvrakRepository.getAllEvrak();
+			
 			ObservableList<Evrak> oList = FXCollections.observableArrayList(evrakList);
 			System.out.println("Gelen evrak table controller");
 			sira.setCellValueFactory(new PropertyValueFactory<Evrak, String>("id"));
@@ -101,7 +100,6 @@ public class GelenEvrakTableController implements Initializable {
 			kurumKisi.setCellValueFactory(new PropertyValueFactory<Evrak, String>("kurumKisi"));
 			tarih.setCellValueFactory(new PropertyValueFactory<Evrak, String>("evrakTarihi"));
 			ek.setCellValueFactory(new PropertyValueFactory<Evrak, String>("ek"));
-			kayitTarihi.setCellValueFactory(new PropertyValueFactory<Evrak, String>("kayitTarih"));
 			aciklama.setCellValueFactory(new PropertyValueFactory<Evrak, String>("aciklama"));
 			konu.setCellValueFactory(new PropertyValueFactory<Evrak, String>("konu"));
 			
@@ -130,6 +128,7 @@ public class GelenEvrakTableController implements Initializable {
 									        System.out.println(row);
 								        	try {
 												EvrakRepository.deleteEvrak(row.getItem().getId());
+												initialize(location, resources);
 											} catch (SQLException e) {
 												e.printStackTrace();
 											}

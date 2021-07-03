@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import application.db.SqliteConnection;
+import application.db.DBConnection;
 import application.entity.User;
 
 public class UserRepository {
@@ -21,7 +21,7 @@ public class UserRepository {
 		ResultSet rs = null;
 		
 		try {
-			connection = SqliteConnection.getConnection();
+			connection = DBConnection.getConnection();
 			ps = connection.prepareStatement(GET_USERS);
 			ps.setInt(1, id);
 			rs = ps.executeQuery();
@@ -53,7 +53,7 @@ public class UserRepository {
 		List<User> userList = new ArrayList();
 		
 		try {
-			connection = SqliteConnection.getConnection();
+			connection = DBConnection.getConnection();
 			ps = connection.prepareStatement(GET_USERS);
 			ps.setInt(1, id);
 			rs = ps.executeQuery();

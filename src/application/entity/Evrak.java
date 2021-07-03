@@ -7,7 +7,6 @@ public class Evrak {
 	private String il;
 	private String ilce;
 	private String kurumKisi;
-	private String kayitTarih;
 	private String ek;
 	private String evrakTarihi;
 	private String aciklama;
@@ -17,13 +16,12 @@ public class Evrak {
 	}
 	
 
-	public Evrak(String idariBirimKodu, String il, String ilce, String kurumKisi, String kayitTarih, String ek,
+	public Evrak(String idariBirimKodu, String il, String ilce, String kurumKisi, String ek,
 			String evrakTarihi, String aciklama, String konu) {
 		this.idariBirimKodu = idariBirimKodu;
 		this.il = il;
 		this.ilce = ilce;
 		this.kurumKisi = kurumKisi;
-		this.kayitTarih = kayitTarih;
 		this.ek = ek;
 		this.evrakTarihi = evrakTarihi;
 		this.aciklama = aciklama;
@@ -60,12 +58,6 @@ public class Evrak {
 	}
 	public void setKurumKisi(String kurumKisi) {
 		this.kurumKisi = kurumKisi;
-	}
-	public String getKayitTarih() {
-		return kayitTarih;
-	}
-	public void setKayitTarih(String kayitTarih) {
-		this.kayitTarih = kayitTarih;
 	}
 	public String getEk() {
 		return ek;

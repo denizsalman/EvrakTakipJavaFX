@@ -7,17 +7,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import application.db.SqliteConnection;
+import application.db.DBConnection;
 import application.entity.Evrak;
 
 public class EvrakRepository {
 
-	private static final String GET_ALL_EVRAK = "SELECT id, idari_birim_kodu, il_kodu, ilce_kodu, kurum_kisi, evrak_tarihi, ek, kayit_tarihi, aciklama, konu"
+	private static final String GET_ALL_EVRAK = "SELECT id, idari_birim_kodu, il_kodu, ilce_kodu, kurum_kisi, evrak_tarihi, ek, aciklama, konu"
 			+ " FROM EVRAK where status = 1";
 
 	private static final String GET_EVRAK = "select * from evrak where id = ?";
-	private static final String INSERT_EVRAK = "INSERT INTO EVRAK (status, idari_birim_kodu, il_kodu, ilce_kodu, kurum_kisi, kayit_tarihi, ek, evrak_tarihi, aciklama, konu) "
-			+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	private static final String INSERT_EVRAK = "INSERT INTO EVRAK (status, idari_birim_kodu, il_kodu, ilce_kodu, kurum_kisi, ek, evrak_tarihi, aciklama, konu) "
+			+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	
 	private static final String DELETE_EVRAK = "DELETE FROM EVRAK WHERE id=?";
 
@@ -28,18 +28,17 @@ public class EvrakRepository {
 		int update = 0;
 		
 		try {
-			connection = SqliteConnection.getConnection();
+			connection = DBConnection.getConnection();
 			ps = connection.prepareStatement(INSERT_EVRAK);
 			ps.setInt(1, 1);
 			ps.setString(2, evrak.getIdariBirimKodu());
 			ps.setString(3, evrak.getIl());
 			ps.setString(4, evrak.getIlce());
 			ps.setString(5, evrak.getKurumKisi());
-			ps.setString(6, evrak.getEvrakTarihi());
-			ps.setString(7, evrak.getEk());
-			ps.setString(8, evrak.getKayitTarih());
-			ps.setString(9, evrak.getAciklama());
-			ps.setString(10, evrak.getKonu());
+			ps.setString(6, evrak.getEk());
+			ps.setString(7, evrak.getEvrakTarihi());
+			ps.setString(8, evrak.getAciklama());
+			ps.setString(9, evrak.getKonu());
 			
 			update = ps.executeUpdate();
 			
@@ -59,7 +58,7 @@ public class EvrakRepository {
 		int update = 0;
 		
 		try {
-			connection = SqliteConnection.getConnection();
+			connection = DBConnection.getConnection();
 			ps = connection.prepareStatement(DELETE_EVRAK);
 			ps.setInt(1, id);
 			
@@ -80,7 +79,7 @@ public class EvrakRepository {
 		List<Evrak> evrakList = new ArrayList();
 		
 		try {
-			connection = SqliteConnection.getConnection();
+			connection = DBConnection.getConnection();
 			ps = connection.prepareStatement(GET_ALL_EVRAK);
 			ResultSet rs = ps.executeQuery();
 
@@ -93,14 +92,13 @@ public class EvrakRepository {
 				evrak.setKurumKisi(rs.getString(5));
 				evrak.setEvrakTarihi(rs.getString(6));
 				evrak.setEk(rs.getString(7));
-				evrak.setKayitTarih(rs.getString(8));
-				evrak.setAciklama(rs.getString(9));
-				evrak.setKonu(rs.getString(10));
+				evrak.setAciklama(rs.getString(8));
+				evrak.setKonu(rs.getString(9));
 				evrakList.add(evrak);
 			}
 			
 			return evrakList;
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			ps.close();
