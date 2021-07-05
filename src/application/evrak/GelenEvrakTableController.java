@@ -78,8 +78,9 @@ public class GelenEvrakTableController implements Initializable {
     	
     	stage.initModality(Modality.APPLICATION_MODAL);
     	stage.initOwner(btnEkle.getScene().getWindow());
-    	
+    	stage.setOnHidden(e -> tableDoldur());
     	Scene scene = new Scene(root);
+    	
     	stage.setScene(scene);
     	stage.show();
     }
@@ -87,6 +88,11 @@ public class GelenEvrakTableController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		tableDoldur();
+	}
+	
+	private void tableDoldur() {
 		try {
 			//Veritabanından gelen evrak bilgilerini getirir
 			List<Evrak> evrakList = EvrakRepository.getAllEvrak();
@@ -128,7 +134,7 @@ public class GelenEvrakTableController implements Initializable {
 									        System.out.println(row);
 								        	try {
 												EvrakRepository.deleteEvrak(row.getItem().getId());
-												initialize(location, resources);
+												tableDoldur();
 											} catch (SQLException e) {
 												e.printStackTrace();
 											}
@@ -149,7 +155,6 @@ public class GelenEvrakTableController implements Initializable {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 	}
     
 }
